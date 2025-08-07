@@ -183,7 +183,42 @@ const Dashboard = () => {
       </Box>
 
       {/* Add withdrawal address */}
-      {!user.walletAddress && 
+      {(user.verified == "false") && 
+      (<Box
+        display={"flex"}
+        flexDirection={{ xs: "column", sm: "row" }}
+        gap={{ xs: 2 }}
+        justifyContent={"space-between"}
+        alignItems={{ sm: "center" }}
+        bgcolor={"rgb(255, 255, 255, 0.3)"}
+        border={"2px solid"}
+        borderColor={"secondary.main"}
+        borderRadius={"5px"}
+        padding={".5rem 1rem"}
+      >
+        <Box 
+          display={"flex"}
+          alignItems={"center"}
+        >
+          <PlayArrow />
+          <Typography variant="caption" fontWeight={"bold"}>Verify your account to access all Trioxtrade features</Typography>
+        </Box>
+        <Button
+          size="small"
+          onClick={() => navigate("/dashboard/verify")}
+          sx={{
+            border: "none",
+            bgcolor: "secondary.main",
+            color: "#000000",
+            borderRadius: "5px"
+          }}
+        >
+          Verify
+        </Button>
+      </Box>)}
+
+      {/* Add withdrawal address */}
+      {(!user.walletAddress && (user.verified == "true") ) &&
       (<Box
         display={"flex"}
         flexDirection={{ xs: "column", sm: "row" }}

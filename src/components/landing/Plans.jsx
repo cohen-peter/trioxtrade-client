@@ -7,62 +7,74 @@ import {
 } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import LockPersonIcon from "@mui/icons-material/LockPerson";
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import PsychologyIcon from "@mui/icons-material/Psychology";
+
 // plans that we offer
 const plans = [
   {
-    title: "BASIC PLAN",
+    title: "BASIC/STARTER PLAN",
     price: "$100",
     rate: "10% DAILY",
     bg: "black",
     min: "$100",
     max: "$699",
-    bonus: "$0 Gift Bonus",
+    // bonus: "$0 Gift Bonus",
+    description: "Perfect for first-time investors"
   },
   {
-    title: "STANDARD PLAN",
+    title: "APEX PLAN",
     price: "$700",
     rate: "30% DAILY",
     bg: "secondary.main",
     min: "$700",
     max: "$1,999",
-    bonus: "$0 Gift Bonus",
+    // bonus: "$0 Gift Bonus",
+    description: "Best balance of affordability and profit"
   },
   {
-    title: "ELITE PLAN",
-    price: "$2000",
+    title: "TITANIUM PLAN",
+    price: "$2,000",
     rate: "50% DAILY",
     bg: "black",
     min: "$2000",
-    max: "$3,999",
-    bonus: "$0 Gift Bonus",
+    max: "$4,999",
+    // bonus: "$0 Gift Bonus",
+    description: "Designed for serious profit-takers"
   },
   {
-    title: "PREMIUM PLAN",
-    price: "$4000",
+    title: "QUANTUM PLAN",
+    price: "$5,000",
     rate: "60% 48 HOURS",
     bg: "black",
     min: "$4,000",
     max: "$4,999",
-    bonus: "$0 Gift Bonus",
+    // bonus: "$0 Gift Bonus",
+    description: "Ideal for short-term high returns"
   },
   {
-    title: "VIP PLAN",
-    price: "$5000",
-    rate: "100% 48 HOURS",
+    title: "ZENITH PLAN",
+    price: "$10,000",
+    rate: "100% 72 HOURS",
     bg: "secondary.main",
-    min: "$5000",
-    max: "$19,999",
-    bonus: "$0 Gift Bonus",
-  },
-  {
-    title: "FAMILY PLAN",
-    price: "$20k",
-    rate: "100% 14 DAYS",
-    bg: "black",
-    min: "$20k",
+    min: "$10,000",
     max: "Unlimited",
-    bonus: "$0 Gift Bonus",
+    // bonus: "$0 Gift Bonus",
+    description: "Exclusive to only elite investors"
   },
+  // {
+  //   title: "FAMILY PLAN",
+  //   price: "$20k",
+  //   rate: "100% 14 DAYS",
+  //   bg: "black",
+  //   min: "$20k",
+  //   // max: "Unlimited",
+  //   // bonus: "$0 Gift Bonus",
+  // },
 ];
 
 // component for each individual plan card
@@ -71,6 +83,8 @@ const PlanCard = ({ plan }) => {
   return (
     <Box
       sx={{
+        display: "flex",
+        flexDirection: "column",
         backgroundColor: plan.bg,
         color: isCyan ? "black" : "white",
         borderRadius: 2,
@@ -92,8 +106,8 @@ const PlanCard = ({ plan }) => {
       </Typography>
 
       {/* Plan descriptions */}
-      <Box textAlign="left" mb={3}>
-        {[`Min. Deposit: ${plan.min}`, `Max. Deposit: ${plan.max}`, plan.bonus].map((line, i) => (
+      <Box textAlign="left" mb={2} alignSelf={"center"}>
+        {[`Min. Deposit: ${plan.min}`, `Max. Deposit: ${plan.max}`].map((line, i) => (
           <Typography
             key={i}
             sx={{ 
@@ -114,6 +128,10 @@ const PlanCard = ({ plan }) => {
           </Typography>
         ))}
       </Box>
+
+      <Typography fontWeight="bold" fontSize={12} >
+        {plan.description.toUpperCase()}
+      </Typography>
     </Box>
   );
 };
@@ -132,7 +150,7 @@ const InvestmentPlans = () => {
         background: "white", 
         display: "flex", 
         flexDirection: "column", 
-        alignItems: "center" 
+        alignItems: "center",
       }}
     >
       {/* Header */}
@@ -146,7 +164,7 @@ const InvestmentPlans = () => {
           mb: 1,
         }}
       >
-        Investment Plan
+        Investment Plans
       </Typography>
       <Typography
         variant="h4"
@@ -178,6 +196,121 @@ const InvestmentPlans = () => {
           </Grid>
         ))}
       </Grid>
+      
+      {/* Additional Information Section */}
+      <Box
+        sx={{
+          mt: 8,
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          textAlign: "center"
+
+        }}
+      >
+        <Box
+          sx={{
+            width: "70%",
+          }}
+        >
+          <Typography
+            variant="h6"
+            fontWeight="bold"
+            mb={1}
+            textAlign="center"
+            sx={{ textTransform: "uppercase", color: "#0070F0", letterSpacing: 1 }}
+          >
+            Additional Benefits
+          </Typography>
+
+          {[
+            "Instant Reinvestment Options.",
+            "Real-time profit tracking.",
+            "24/7 Customer Support.",
+            "Secured Crypto Wallet Integration.",
+            "Referral rewards available.",
+          ].map((text, idx) => (
+            <Box
+              key={idx}
+              sx={{
+                display: "flex",
+                alignItems: "flex-start",
+                // border: "1px solid purple",
+                // borderColor: "secondary.main",
+                p: .5,
+                mb: 1,
+                borderRadius: 1,
+              }}
+            >
+              <CheckCircleOutlineIcon sx={{ color: "#0070F0", fontSize: 20, mr: 1, mt: "2px" }} />
+              <Typography fontSize={14} color="black">
+                {text}
+              </Typography>
+            </Box>
+          ))}
+
+          <Typography
+            variant="h6"
+            fontWeight="bold"
+            mt={3}
+            mb={1}
+            textAlign="center"
+            sx={{ textTransform: "uppercase", color: "#0070F0", letterSpacing: 1 }}
+          >
+            🛡️ Key Features
+          </Typography>
+
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              // alignItems: "center",    // center children horizontally
+              gap: 1,                  // spacing between items
+            }}
+          >
+            {[
+              {
+                icon: <BusinessCenterIcon sx={{ color: "#4caf50", fontSize: 20, mr: 1, mt: "2px" }} />,
+                text: "All returns are net, after management and performance fees.",
+              },
+              {
+                icon: <BarChartIcon sx={{ color: "#2196f3", fontSize: 20, mr: 1, mt: "2px" }} />,
+                text: "No hidden charges, full transparency through your dashboard.",
+              },
+              {
+                icon: <AttachMoneyIcon sx={{ color: "#f57c00", fontSize: 20, mr: 1, mt: "2px" }} />,
+                text: "Early withdrawal is available for some plans, with an exit adjustment fee.",
+              },
+              {
+                icon: <PsychologyIcon sx={{ color: "#9c27b0", fontSize: 20, mr: 1, mt: "2px" }} />,
+                text:
+                  "Assets are managed across top-performing DeFi pools, staking platforms, and algorithmic strategies.",
+              },
+              {
+                icon: <LockPersonIcon sx={{ color: "#e91e63", fontSize: 20, mr: 1, mt: "2px" }} />,
+                text: "KYC/AML-compliant platform for investor security.",
+              },
+            ].map(({ icon, text }, idx) => (
+              <Box
+                key={idx}
+                sx={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  py: .5,
+                  borderRadius: 1,
+                }}
+              >
+                {icon}
+                <Typography fontSize={14} color="black">
+                  {text}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        </Box>
+      </Box>
+
     </Box>
   );
 };

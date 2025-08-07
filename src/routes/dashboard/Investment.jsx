@@ -21,27 +21,43 @@ import dayjs from "dayjs";
 const plans = [
   {
     id: "basic",
-    name: "Basic Plan",
+    name: "Basic/Starter Plan",
     price: 100,
-    profitPercent: 5,
-    durationHrs: 24,
-    description: "Earn 5% profit in 24 hours",
-  },
-  {
-    id: "standard",
-    name: "Standard Plan",
-    price: 500,
     profitPercent: 10,
     durationHrs: 24,
     description: "Earn 10% profit in 24 hours",
   },
   {
-    id: "premium",
-    name: "Premium Plan",
-    price: 1000,
-    profitPercent: 15,
+    id: "apex",
+    name: "Apex Plan",
+    price: 700,
+    profitPercent: 30,
     durationHrs: 24,
-    description: "Earn 15% profit in 24 hours",
+    description: "Earn 30% profit in 24 hours",
+  },
+  {
+    id: "titanium",
+    name: "Titanium Plan",
+    price: 2000,
+    profitPercent: 50,
+    durationHrs: 24,
+    description: "Earn 50% profit in 24 hours",
+  },
+  {
+    id: "quantum",
+    name: "Quantum Plan",
+    price: 5000,
+    profitPercent: 60,
+    durationHrs: 48,
+    description: "Earn 60% profit in 48 hours",
+  },
+  {
+    id: "zenith",
+    name: "Zenith Plan",
+    price: 10000,
+    profitPercent: 100,
+    durationHrs: 72,
+    description: "Earn 100% profit in 72 hours",
   },
 ];
 
@@ -271,7 +287,7 @@ const Investment = () => {
 
       <Divider sx={{ borderColor: "secondary.main", mb: 2}}/>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} justifyContent={"center"}>
         {plans.map((plan) => (
           <Grid size={{ xs: 12, md: 4 }} key={plan.id}>
             <Card
@@ -356,7 +372,9 @@ const Investment = () => {
         PaperProps={{ sx: { backgroundColor: 'black', textAlign: 'center' } }} 
       >
         <DialogTitle fontSize={".9rem"}>
-          {"Are you sure you want to cancel your plan."}
+          {"Are you sure you want to cancel your plan."} 
+          <br />
+          {"The money will be returned to your account but no profit will be added."}
         </DialogTitle>
         <DialogActions>
           <Button 

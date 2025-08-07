@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setAuthToken } from "./services/axios.js";
 import useAutoLogout from "./hooks/useAutoLogout.js";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 // pages
 import LandingPage from "./routes/public/Landing.jsx";
 import SignInPage from "./routes/public/SignIn.jsx";
@@ -26,6 +27,9 @@ import Investment from "./routes/dashboard/Investment.jsx";
 import Plans from "./routes/dashboard/Plans.jsx";
 import Settings from "./routes/dashboard/Settings.jsx";
 import Withdrawal from "./routes/dashboard/Withdrawal.jsx";
+import Verify from "./routes/dashboard/Verify.jsx";
+import FAQ from "./routes/public/FAQ.jsx";
+import LearnMore from "./routes/public/LearnMore.jsx";
 
 function App() {
 
@@ -46,11 +50,14 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <ScrollToTop />
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<SignInPage />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/learn-more" element={<LearnMore />} />
 
           {/* Dashboard routes */}
           <Route 
@@ -62,6 +69,7 @@ function App() {
             <Route path="deposit" element={<Deposit />} />
             <Route path="withdrawal" element={<Withdrawal />} />
             <Route path="transactions" element={<Transactions />} />
+            <Route path="verify" element={<Verify />} />
             <Route path="investments" element={<Investment />} />
             <Route path="plans" element={<Plans />} />
             <Route path="Settings" element={<Settings />} />

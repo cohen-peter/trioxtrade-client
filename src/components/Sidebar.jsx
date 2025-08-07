@@ -20,6 +20,7 @@ import theme from '../theme';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { setLogout, setTransactions } from '../redux/userSlice';
+import VerifyIcon from '../assets/verifyUser.png';
 
 //switch icons for something more consistent
 import icon2 from "../assets/icon2.png"
@@ -33,6 +34,7 @@ const menuItems = [
   { text: 'Dashboard', icon: DashboardIcon, path: '/dashboard' },
   { text: "Deposit", icon: icon2, path: '/dashboard/deposit'},
   { text: "Withdrawal", icon: icon3, path: '/dashboard/withdrawal'},
+  { text: "Verify", icon: VerifyIcon, path: '/dashboard/verify'},
   { text: 'Transactions', icon: TransactionIcon, path: '/dashboard/transactions' },
   { text: "Investment", icon: InvestmentIcon, path: "/dashboard/investments"},
   // { text: "Our Plans", icon: PlanIcon, path: "/dashboard/plans"},
@@ -149,7 +151,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
       {/* Bottom menu */}
       <List sx={{mb: "64px"}}>
 
-        <ListItem sx={{ padding: 0 }}>
+        {/* <ListItem sx={{ padding: 0 }}>
           <ListItemButton
             sx={{
               borderRadius: "8px",
@@ -166,7 +168,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
             />
             <ListItemText primary="Help" />
           </ListItemButton>
-        </ListItem>
+        </ListItem> */}
 
         <ListItem sx={{ padding: 0 }}>
           <ListItemButton

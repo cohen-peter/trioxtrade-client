@@ -6,8 +6,27 @@ import InvestmentPlans from "../../components/landing/Plans";
 import PreFooter from "../../components/landing/PreFooter";
 import Footer from "../../components/landing/Footer";
 import { Box, Divider, Toolbar } from "@mui/material";
+import { useEffect } from "react";
+
+// function to handle the navbar scroll
+const scrollToSection = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
 
 const LandingPage = () => {
+
+  // handles navbar scroll from other pages
+  useEffect(() => {
+    const target = sessionStorage.getItem("scrollToTarget");
+    if (target) {
+      scrollToSection(target);
+      sessionStorage.removeItem("scrollToTarget");
+    }
+  }, []);
+
   return(
     <>
     <Navbar />

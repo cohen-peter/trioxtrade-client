@@ -17,7 +17,7 @@ import {
 import { Menu } from "@mui/icons-material";
 import logo from "../../assets/logo.png";
 import theme from "../../theme";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 // sets width of the mobile menu drawer
 const drawerWidth = 240; 
@@ -26,19 +26,19 @@ const drawerWidth = 240;
 const navItems = [
   {
   label: "Home",
-  onClick: () => scrollToSection("home")
+  target: "home"
   },
   {
   label: "About",
-  onClick: () => scrollToSection("about")
+  target: "about"
   },
   {
   label: "Services",
-  onClick: () => scrollToSection("services")
+  target: "services"
   },
   {
   label: "Plans",
-  onClick: () => scrollToSection("plans")
+  target: "plans"
   },
 ];
 
@@ -51,13 +51,25 @@ const scrollToSection = (id) => {
 };
 
 const Navbar = (props) => {
-
+  
   // sets a breakpoint for mobile/desktop screens
   const isDesktop = useMediaQuery(theme.breakpoints.up("md")); 
   // checks whether the mobile menu is open
   const [mobileOpen, setMobileOpen] = useState(false); 
   
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  // function that checks if its in the main page and handles the scroll
+  const handleScrollOrRedirect = (target) => {
+    if (location.pathname == "/") {
+      scrollToSection(target);
+    }
+    else {
+      sessionStorage.setItem("scrollToTarget", target);
+      navigate("/")
+    }
+  };
 
   // toggles the mobile menu
   const toggleMenu = () => {
@@ -77,10 +89,10 @@ const Navbar = (props) => {
 
       <Divider sx={{ borderColor: "text.primary" }}/>
       <List>
-        {navItems.map(({ label, onClick }) => (
+        {navItems.map(({ label, target }) => (
           <ListItem key={label} disablePadding>
             <ListItemButton 
-              onClick={onClick}
+              onClick={() => handleScrollOrRedirect(target)}
               sx={{ 
                 textAlign: 'center',
                 "&:hover": {
@@ -94,6 +106,21 @@ const Navbar = (props) => {
             </ListItemButton>
           </ListItem>
         ))}
+          <ListItem disablePadding>
+            <ListItemButton
+              onClick={() => navigate("/faq")}
+              sx={{
+                textAlign: "center",
+                "&:hover": {
+                  color: "secondary.main",
+                  textDecoration: "underline",
+                  textDecorationColor: "secondary.main"
+                }
+              }}
+            >
+              <ListItemText primary={"FAQ"} />
+            </ListItemButton>
+          </ListItem>
       </List>
       <Button onClick={() => navigate("/signup")}>Get Started</Button>
 
@@ -106,7 +133,14 @@ const Navbar = (props) => {
         <Toolbar sx={{ p: "1rem" }}>
 
           {/* Logo and Title */}
-          <Box display="flex" gap={2} flexGrow={1} alignItems="center">
+          <Box 
+            display="flex" 
+            gap={2} 
+            flexGrow={1} 
+            alignItems="center"
+            onClick={() => navigate("/")}
+            sx={{ cursor: "pointer" }}
+          >
             <Box
               component="img"
               src={logo}
@@ -124,11 +158,11 @@ const Navbar = (props) => {
           {/* Desktop Menu */}
           {isDesktop && (
             <Box>
-              {navItems.map(({ label, onClick }) => (
+              {navItems.map(({ label, target }) => (
                 <Button 
                   key={label} 
                   variant="text" 
-                  onClick={onClick}
+                  onClick={() => handleScrollOrRedirect(target)}
                   sx={{ 
                     color: "text.primary",
                     "&:hover": {
@@ -141,6 +175,20 @@ const Navbar = (props) => {
                   {label}
                 </Button>
               ))}
+              <Button
+                variant="text"
+                onClick={() => navigate("/faq")}
+                sx={{
+                  color: "text.primary",
+                  "&:hover": {
+                    color: "secondary.main",
+                    textDecoration: "underline",
+                    textDecorationColor: "secondary.main"
+                  }
+                }}
+              >
+                FAQ
+              </Button>
               <Button 
                 size="small" 
                 onClick={() => navigate("/signup")}

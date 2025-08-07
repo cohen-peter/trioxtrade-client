@@ -12,9 +12,11 @@ import {
 import mobileAboutUsImage from "../../assets/mobileAboutUsImage.png";
 import desktopAboutUsImage from "../../assets/desktopAboutUsImage.png";
 import theme from "../../theme";
+import { useNavigate } from "react-router";
 
 // component for the mobile about us section
 const MobileAboutUs = () => {
+  const navigate = useNavigate();
 
   return(
     <Container
@@ -74,16 +76,25 @@ const MobileAboutUs = () => {
           </Box>
           <Typography variant="h4" fontWeight={"bold"} mb={2}>WHO WE ARE</Typography>
           <Typography textAlign={"justify"} fontSize={14} mb={4}>
-            Trioxtrade is the rapidly rising and most promising crypto trading program currently available that focus on providing profitable crypto investment solutions via AI bot trading.
+            {/* Trioxtrade is the rapidly rising and most promising crypto trading program currently available that focus on providing profitable crypto investment solutions via AI bot trading.
           </Typography>
+          <Typography textAlign={"justify"} mb={4} fontWeight={"bold"}> */}
+            We are a team of seasoned traders, blockchain experts, financial analysts, and fintech professionals with a shared mission:
+          </Typography>
+          <Typography>
+          To make advanced crypto investing simple, accessible, and profitable for everyone.
+          </Typography>
+            {/* Trioxtrade is the rapidly rising and most promising crypto trading program currently available that focus on providing profitable crypto investment solutions via AI bot trading. */}
           <Typography textAlign={"justify"} fontSize={14}>
-            The vigorous activity in this area has allowed the Company to generate an effective team of experts and get a great practical experience.
-            We firmly believe in the prospects of cryptocurrency exchange trading since the crypto market is the largest market by volume and therefore has the highest liquidity on many exchanges.
+            With global market experience and deep insight into blockchain economics, we manage digital portfolios using proven methodologies including algorithmic trading, DeFi yield farming, staking, and arbitrage—maximizing returns while minimizing risk.
+            {/* The vigorous activity in this area has allowed the Company to generate an effective team of experts and get a great practical experience.
+            We firmly believe in the prospects of cryptocurrency exchange trading since the crypto market is the largest market by volume and therefore has the highest liquidity on many exchanges. */}
           </Typography>
         </CardContent>
         <CardActions>
           <Button 
             variant="contained" 
+            onClick={() => navigate("/learn-more")}
             fullWidth sx={{
               bgcolor: "background.default",
               color: "text.primary"
@@ -199,13 +210,19 @@ const DesktopAboutUs = () => {
 
         <Typography textAlign={"justify"} variant="h4" mb={4} fontWeight={"bold"}>WHO WE ARE</Typography>
         <Typography textAlign={"justify"} mb={4} fontWeight={"bold"}>
-          Trioxtrade is the rapidly rising and most promising crypto trading program currently available that focus on providing profitable crypto investment solutions via AI bot trading.
+          We are a team of seasoned traders, blockchain experts, financial analysts, and fintech professionals with a shared mission:
         </Typography>
+        <Typography>
+          To make advanced crypto investing simple, accessible, and profitable for everyone.
+        </Typography>
+          {/* Trioxtrade is the rapidly rising and most promising crypto trading program currently available that focus on providing profitable crypto investment solutions via AI bot trading. */}
         <Typography textAlign={"justify"} fontWeight={"bold"} mb={3}>
-          The vigorous activity in this area has allowed the Company to generate an effective team of experts and get a great practical experience.
-          We firmly believe in the prospects of cryptocurrency exchange trading since the crypto market is the largest market by volume and therefore has the highest liquidity on many exchanges.
+          With global market experience and deep insight into blockchain economics, we manage digital portfolios using proven methodologies including algorithmic trading, DeFi yield farming, staking, and arbitrage—maximizing returns while minimizing risk.
+          {/* The vigorous activity in this area has allowed the Company to generate an effective team of experts and get a great practical experience.
+          We firmly believe in the prospects of cryptocurrency exchange trading since the crypto market is the largest market by volume and therefore has the highest liquidity on many exchanges. */}
         </Typography>
         <Button 
+          onClick={() => navigate("/learn-more")}
           sx={{ 
             color: "text.secondary", 
             borderColor: "text.secondary", 
