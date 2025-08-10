@@ -15,6 +15,7 @@ import { useNavigate } from "react-router";
 import PhoneIcon from '@mui/icons-material/Phone';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import { Email, WhatsApp } from "@mui/icons-material";
 
 
 const LearnMore = () => {
@@ -242,12 +243,12 @@ const LearnMore = () => {
                 Contact Us
               </Typography>
               <Box display="flex" alignItems="center" mb={1}>
-                <SupportAgentIcon sx={{ mr: 1, color: "#3CE8F2" }} />
+                <Email sx={{ mr: 1, color: "#3CE8F2" }} />
                 <Typography fontSize={14}>support@trioxtrade.com</Typography>
               </Box>
               <Box display="flex" alignItems="center" mb={1}>
-                <PhoneIcon sx={{ mr: 1, color: "#3CE8F2" }} />
-                <Typography fontSize={14}>+123-456-7890</Typography>
+                <WhatsApp sx={{ mr: 1, color: "#3CE8F2" }} />
+                <Typography fontSize={14}>+44 7931 377432</Typography>
               </Box>
               <Box display="flex" alignItems="center">
                 <TelegramIcon sx={{ mr: 1, color: "#3CE8F2" }} />

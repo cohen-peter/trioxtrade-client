@@ -28,6 +28,8 @@ import LockResetIcon from "@mui/icons-material/LockReset";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import GavelIcon from "@mui/icons-material/Gavel";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { Email } from "@mui/icons-material";
 
 // Icons for footer
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -115,7 +117,7 @@ const faqData = [
   {
     question: "How do I contact TRIOXTRADE support?",
     answer:
-      "Email: support@trioxtrade.com\nLive Chat: in dashboard\nPhone: [Insert Number]",
+      "Email: support@trioxtrade.com\nLive Chat: in dashboard (coming soon)\nWhatsApp: +44 7931 377432",
     icon: <SupportAgentIcon sx={{ color: "#3CE8F2", mr: 1 }} />,
   },
   {
@@ -249,12 +251,12 @@ export default function FAQ() {
               Contact Us
             </Typography>
             <Box display="flex" alignItems="center" mb={1}>
-              <SupportAgentIcon sx={{ mr: 1, color: "#3CE8F2" }} />
+              <Email sx={{ mr: 1, color: "#3CE8F2" }} />
               <Typography fontSize={14}>support@trioxtrade.com</Typography>
             </Box>
             <Box display="flex" alignItems="center" mb={1}>
-              <PhoneIcon sx={{ mr: 1, color: "#3CE8F2" }} />
-              <Typography fontSize={14}>+123-456-7890</Typography>
+              <WhatsAppIcon sx={{ mr: 1, color: "#3CE8F2" }} />
+              <Typography fontSize={14}>+44 7931 377432</Typography>
             </Box>
             <Box display="flex" alignItems="center">
               <TelegramIcon sx={{ mr: 1, color: "#3CE8F2" }} />

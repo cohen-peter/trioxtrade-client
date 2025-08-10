@@ -156,7 +156,7 @@ const Settings = () => {
           </Box>
 
           <TextField
-            label="USDT Address"
+            label="USDT Address (Bsc bep-20)"
             name="walletAddress"
             value={userData.walletAddress}
             onChange={handleChange}

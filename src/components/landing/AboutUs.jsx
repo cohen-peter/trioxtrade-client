@@ -75,14 +75,15 @@ const MobileAboutUs = () => {
             />
           </Box>
           <Typography variant="h4" fontWeight={"bold"} mb={2}>WHO WE ARE</Typography>
-          <Typography textAlign={"justify"} fontSize={14} mb={4}>
+          <Typography textAlign={"justify"} fontSize={14} mb={2}>
             {/* Trioxtrade is the rapidly rising and most promising crypto trading program currently available that focus on providing profitable crypto investment solutions via AI bot trading.
           </Typography>
           <Typography textAlign={"justify"} mb={4} fontWeight={"bold"}> */}
             We are a team of seasoned traders, blockchain experts, financial analysts, and fintech professionals with a shared mission:
           </Typography>
-          <Typography>
-          To make advanced crypto investing simple, accessible, and profitable for everyone.
+          {/* <Typography > */}
+          <Typography textAlign={"justify"} fontSize={14} mb={3}>
+          • To make advanced crypto investing simple, accessible, and profitable for everyone.
           </Typography>
             {/* Trioxtrade is the rapidly rising and most promising crypto trading program currently available that focus on providing profitable crypto investment solutions via AI bot trading. */}
           <Typography textAlign={"justify"} fontSize={14}>
@@ -209,11 +210,11 @@ const DesktopAboutUs = () => {
         </Box>
 
         <Typography textAlign={"justify"} variant="h4" mb={4} fontWeight={"bold"}>WHO WE ARE</Typography>
-        <Typography textAlign={"justify"} mb={4} fontWeight={"bold"}>
+        <Typography textAlign={"justify"} mb={1} fontWeight={"bold"}>
           We are a team of seasoned traders, blockchain experts, financial analysts, and fintech professionals with a shared mission:
         </Typography>
-        <Typography>
-          To make advanced crypto investing simple, accessible, and profitable for everyone.
+        <Typography textAlign={"justify"} mb={4} fontWeight={"bold"}>
+          • To make advanced crypto investing simple, accessible, and profitable for everyone.
         </Typography>
           {/* Trioxtrade is the rapidly rising and most promising crypto trading program currently available that focus on providing profitable crypto investment solutions via AI bot trading. */}
         <Typography textAlign={"justify"} fontWeight={"bold"} mb={3}>

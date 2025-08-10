@@ -30,6 +30,9 @@ import Withdrawal from "./routes/dashboard/Withdrawal.jsx";
 import Verify from "./routes/dashboard/Verify.jsx";
 import FAQ from "./routes/public/FAQ.jsx";
 import LearnMore from "./routes/public/LearnMore.jsx";
+import ForgotPassword from "./routes/public/ForgotPassword.jsx";
+// import ResetPassword from "./routes/public/ResetPassword.jsx";
+import ResetPassword from "./routes/public/ResetPassword.jsx";
 
 function App() {
 
@@ -58,6 +61,8 @@ function App() {
           <Route path="/login" element={<SignInPage />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/learn-more" element={<LearnMore />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
 
           {/* Dashboard routes */}
           <Route 

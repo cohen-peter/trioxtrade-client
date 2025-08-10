@@ -124,7 +124,7 @@ const Withdrawal = () => {
           />
 
           <TextField
-            label="USDT Wallet Address"
+            label="USDT Wallet Address (Bsc bep-20)"
             {...register("walletAddress")}
             error={!!errors.walletAddress}
             helperText={errors.walletAddress?.message}

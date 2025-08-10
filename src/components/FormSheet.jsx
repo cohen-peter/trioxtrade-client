@@ -232,6 +232,20 @@ const FormSheet = ({ type = "signup", onSubmit, isLoading, errorMessage }) => {
           </Grid>
         )}
 
+        {(type == "signin") && <Typography
+          component="a"
+          href="/forgot-password"
+          sx={{
+            color: "white",
+            fontSize: "12px",
+            textDecoration: "none",
+            cursor: "pointer",
+            "&:hover": { textDecoration: "underline", color: "secondary.main"}
+          }}
+        >
+          Forgot Password?
+        </Typography>}
+
         <Grid size={12}>
           {/* submit button */}
           <Button
