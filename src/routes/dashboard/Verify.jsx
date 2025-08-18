@@ -60,7 +60,7 @@ const Verify = () => {
 
 
   return (
-    <Box sx={{ bgcolor: "black", color: "white", height: {xs: "75vh", sm: "85vh"}, px: 3, py: 4, borderRadius: "8px" }}>
+    <Box sx={{ bgcolor: "black", color: "white", height: {xs: "80vh", sm: "85vh"}, px: 3, py: 4, borderRadius: "8px" }}>
       {step === 1 && (
         <Box display={"flex"} flexDirection={"column"}  justifyContent={"center"} height={"100%"}>
 

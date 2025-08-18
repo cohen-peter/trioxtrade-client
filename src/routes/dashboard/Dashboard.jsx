@@ -159,6 +159,7 @@ const Dashboard = () => {
         {/* button holder */}
         <Box display={"flex"} gap={2}>
           <Button 
+            onClick={() => navigate("/dashboard/investments")}
             sx={{
               bgcolor: "background.default",
               borderRadius: "8px",
