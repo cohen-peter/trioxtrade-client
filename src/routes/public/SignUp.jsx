@@ -37,8 +37,10 @@ const SignUpPage = () => {
       if (signedUp) {
         // show signup was successful and navigate to login
         setShowSuccess(true);
+        localStorage.setItem("pendingEmail", signedUp.email);
+        localStorage.setItem("verificationSource", "signup");
         setTimeout(() => {
-          navigate("/login");
+          navigate("/verify-email");
         }, 2000);
 
       }

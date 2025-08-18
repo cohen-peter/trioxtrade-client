@@ -2,6 +2,9 @@ import {
   Alert,
   Button,
   CircularProgress,
+  Checkbox,
+  FormControlLabel,
+  Link,
   Grid,
   IconButton,
   InputAdornment,
@@ -245,6 +248,25 @@ const FormSheet = ({ type = "signup", onSubmit, isLoading, errorMessage }) => {
         >
           Forgot Password?
         </Typography>}
+
+        {(type == "signup") && <FormControlLabel
+          control={<Checkbox
+            sx={{
+              color: "#ffffff", // unchecked color
+              "&.Mui-checked": {
+                color: "#3ce8f2", // checked color
+              },
+            }}
+          />}
+          label={
+            <Typography variant="body2">
+              I accept the{" "}
+              <Link color="secondary.main" sx={{textDecoration: "underline"}}>
+                Terms & Conditions
+              </Link>
+            </Typography>
+          }
+        />}
 
         <Grid size={12}>
           {/* submit button */}

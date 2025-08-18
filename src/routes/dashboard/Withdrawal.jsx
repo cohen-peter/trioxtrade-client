@@ -25,8 +25,15 @@ const Withdrawal = () => {
   const [balance, setBalance] = useState(0);
   const [loading, setLoading] = useState(false);
   const [popup, setPopup] = useState("");
+  const [verified, setVerified] = useState(false);
   const transactionId = `WIT-${Date.now()}-${Math.floor(Math.random() * 1000000)}`;
 
+
+  useEffect(() => {
+    if (user?.verified === "true") {
+      setVerified(true)
+    }
+  }, [user]);
 
   useEffect(() => {
     if (!transactions || transactions.length == 0) {
@@ -93,6 +100,74 @@ const Withdrawal = () => {
       setLoading(false);
     }
   };
+
+  if (!verified) {
+    return (
+      <Box 
+        width={"100%"} 
+        display={"flex"} 
+        flexDirection={"column"} 
+        gap={3} 
+        alignItems={"center"}
+        justifyContent={"center"}
+        textAlign={"center"}
+        minHeight={"85vh"}
+        bgcolor={"#1A1A1A"}
+        borderRadius={2}
+        p={3}
+      >
+        <Typography 
+          variant="h5" 
+          sx={{ 
+            color: 'secondary.main', 
+            fontWeight: 'bold' 
+          }}
+        >
+          Verification Required
+        </Typography>
+
+        <Typography fontSize={".9rem"} color="#929EAE">
+          Please verify your account before making a withdrawal.
+        </Typography>
+
+        <Box display={"flex"} flexDirection={"column"} gap={2} width={"80%"}>
+          <Button
+            fullWidth
+            variant="contained"
+            onClick={() => window.location.href = "/dashboard/verify"}
+            sx={{
+              backgroundColor: '#095CE0',
+              color: "#fff",
+              px: 3,
+              py: 1.2,
+              borderRadius: 2,
+              fontSize: '1rem',
+              fontWeight: 'bold',
+            }}
+          >
+            Verify Now
+          </Button>
+
+          <Button
+            fullWidth
+            variant="contained"
+            onClick={() => window.location.href = "/dashboard"}
+            sx={{
+              backgroundColor: '#2B2B2B',
+              color: "#fff",
+              px: 3,
+              py: 1.2,
+              borderRadius: 2,
+              fontSize: '1rem',
+              fontWeight: 'bold',
+            }}
+          >
+            Back to Dashboard
+          </Button>
+        </Box>
+      </Box>
+    );
+  }
 
   return (
     <Box

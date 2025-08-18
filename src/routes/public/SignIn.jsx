@@ -34,7 +34,14 @@ const SignInPage = () => {
 
       const response = await api.post("/auth/login", data);
       const loggedIn = response.data;
-      
+
+      if (!loggedIn.user.emailVerified) {
+        localStorage.setItem("pendingEmail", loggedIn.user.email);
+        localStorage.setItem("verificationSource", "signin");
+        navigate("/verify-email");
+        return
+      };
+
       if (loggedIn) {
         dispatch(
           setLogin({

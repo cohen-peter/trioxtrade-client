@@ -17,15 +17,15 @@ import {
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { ContentCopy } from "@mui/icons-material";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import api from '../../services/axios';
 import { addTransaction } from '../../redux/userSlice';
-import usdtAddress from "../../assets/usdtQr.png";
-import ethAddress from "../../assets/ethereumQr.png";
-import btcAddress from "../../assets/bitcoinQr.png";
-import solAddress from "../../assets/solQr.png";
+import usdtAddress from "../../assets/usdtQr.jpg";
+import ethAddress from "../../assets/ethereumQr.jpg";
+import btcAddress from "../../assets/bitcoinQr.jpg";
+import bnbAddress from "../../assets/bnbQr.jpg";
 import successIcon from "../../assets/successfulIcon.png";
 
 const Deposit = () => {
@@ -40,13 +40,19 @@ const Deposit = () => {
   const coinPrices = useSelector((state) => state.user.coinPrices);
   const user = useSelector((state) => state.user.user);
 
+  useEffect(() => {
+    if (user?.verified !== "true") {
+      setPage(4);
+    }
+  }, [user]);
+
   const navigate = useNavigate();
 
   const currencies = [
-    { value: "USDT", label: "USDT (erc-20)", price: 1, qrCode: usdtAddress, address: "0x034CbCE34A117cd7269215Cac19996AbF4C64889" },
-    { value: "BTC", label: "Bitcoin", price: coinPrices["BINANCE:BTCUSDT"], qrCode: btcAddress, address: "bc1q8jew6hky4vjztz3spkuepkndwepreelr9jfezd" },
-    { value: "ETH", label: "Ethereum", price: coinPrices["BINANCE:ETHUSDT"], qrCode: ethAddress, address: "0x034CbCE34A117cd7269215Cac19996AbF4C64889" },
-    { value: "SOL", label: "Solana", price: coinPrices["BINANCE:SOLUSDT"], qrCode: solAddress, address: "Evnmjd1Ycz5Z81fz2aEU9W2JbALwU9hF3EVYZWJCwXrv" }
+    { value: "USDT", label: "USDT (erc-20)", price: 1, qrCode: usdtAddress, address: "TA5qc4z6xiJk4CHKkM5jt934Vk8mUY2Wbs" },
+    { value: "BTC", label: "Bitcoin", price: coinPrices["BINANCE:BTCUSDT"], qrCode: btcAddress, address: "bc1q4ezaea6gulde44l7l33lnj4gn7zlseckt29ppz" },
+    { value: "ETH", label: "Ethereum", price: coinPrices["BINANCE:ETHUSDT"], qrCode: ethAddress, address: "0x970d88B4332C65497aC3eA8B3512EaADaF8e6E4b" },
+    { value: "BNB", label: "Bnb bep20", price: coinPrices["BINANCE:BNBUSDT"], qrCode: bnbAddress, address: "0x970d88B4332C65497aC3eA8B3512EaADaF8e6E4b" }
   ];
 
   const selectedCurrency = currencies.find((cur) => cur.value === currency);
@@ -502,6 +508,72 @@ const Deposit = () => {
         </Box>
         </Box>
       )}
+
+      { page === 4 && (
+        <Box 
+          width={"100%"} 
+          display={"flex"} 
+          flexDirection={"column"} 
+          gap={3} 
+          alignItems={"center"}
+          justifyContent={"center"}
+          textAlign={"center"}
+        >
+          <Typography 
+            variant="h5" 
+            sx={{ 
+              color: 'secondary.main', 
+              fontWeight: 'bold' 
+            }}
+          >
+            Verification Required
+          </Typography>
+
+          <Typography 
+            fontSize={".9rem"} 
+            color="#929EAE"
+          >
+            You need to verify your account to access this feature.
+          </Typography>
+
+          <Box display={"flex"} flexDirection={"column"} gap={2} width={"80%"}>
+            <Button
+              fullWidth
+              variant="contained"
+              onClick={() => navigate("/dashboard/verify")}
+              sx={{
+                backgroundColor: '#095CE0',
+                color: "#fff",
+                px: 3,
+                py: 1.2,
+                borderRadius: 2,
+                fontSize: '1rem',
+                fontWeight: 'bold',
+              }}
+            >
+              Verify Now
+            </Button>
+
+            <Button
+              fullWidth
+              variant="contained"
+              onClick={() => navigate("/dashboard")}
+              sx={{
+                backgroundColor: '#2B2B2B',
+                color: "#fff",
+                px: 3,
+                py: 1.2,
+                borderRadius: 2,
+                fontSize: '1rem',
+                fontWeight: 'bold',
+              }}
+            >
+              Back to Dashboard
+            </Button>
+          </Box>
+        </Box>
+      )}
+
 
       <Dialog 
         open={openSuccessModal} 

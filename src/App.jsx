@@ -33,6 +33,7 @@ import LearnMore from "./routes/public/LearnMore.jsx";
 import ForgotPassword from "./routes/public/ForgotPassword.jsx";
 // import ResetPassword from "./routes/public/ResetPassword.jsx";
 import ResetPassword from "./routes/public/ResetPassword.jsx";
+import VerifyEmail from "./routes/public/VerifyEmail.jsx";
 
 function App() {
 
@@ -63,6 +64,7 @@ function App() {
           <Route path="/learn-more" element={<LearnMore />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
 
           {/* Dashboard routes */}
           <Route 
