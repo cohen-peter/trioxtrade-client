@@ -30,7 +30,7 @@ const SignUpPage = () => {
     try {
       setIsLoading(true);
       setErrorMessage("");
-
+      console.log(data)
       const response = await api.post("/auth/register", data);
       const signedUp = response.data;
 
