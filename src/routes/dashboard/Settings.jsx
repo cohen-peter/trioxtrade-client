@@ -141,7 +141,7 @@ const Settings = () => {
                 // border: "1px solid grey",
                 color: '#fff',
                 height: "40px",
-                fontSize: "12px"
+                fontSize: "16px"
               }}
               buttonStyle={{
                 backgroundColor: 'rgba(255, 255, 255, 0.15)',

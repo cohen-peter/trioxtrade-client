@@ -13,7 +13,7 @@ const Logo = () => {
     {/* Trioxtrade logo */}
     <Box 
       display={"flex"} 
-      gap={2} py={10} 
+      gap={2} py={{ xs: 4, sm: 10 }} 
       alignItems={"center"} 
       margin={"0 auto"}
       onClick={() => navigate("/")}

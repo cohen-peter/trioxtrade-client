@@ -79,7 +79,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           height: 40,
-          fontSize: ".75rem"
+          // fontSize: ".75rem"
         }
       }
     },

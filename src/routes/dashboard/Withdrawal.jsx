@@ -174,7 +174,7 @@ const Withdrawal = () => {
       display={"flex"}
       flexDirection={"column"}
       gap={3}
-      height={"85vh"}
+      height={{xs: "75vh", sm: "85vh"}}
       // justifyContent={"center"}
       bgcolor={"#1A1A1A"}
       borderRadius={"8px"}

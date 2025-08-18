@@ -115,6 +115,7 @@ const FormSheet = ({ type = "signup", onSubmit, isLoading, errorMessage }) => {
             render={({ field }) => (
               <TextField
                 label="First Name"
+                sx={{ fontSize: "16px" }}
                 fullWidth
                 {...field}
                 error={!!errors.firstName}

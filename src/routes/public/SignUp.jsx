@@ -84,7 +84,7 @@ const SignUpPage = () => {
         <Logo />
 
         {/* Sign up header text */}
-        <Box mb={4}>
+        <Box mb={4} >
           <Typography variant="h4" color="secondary.main" fontWeight={"bold"}>Sign Up</Typography>
           <Typography variant="caption">Please fill your details to open an account</Typography>
         </Box>

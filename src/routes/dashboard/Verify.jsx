@@ -60,7 +60,7 @@ const Verify = () => {
 
 
   return (
-    <Box sx={{ bgcolor: "black", color: "white", height: "85vh", px: 3, py: 4, borderRadius: "8px" }}>
+    <Box sx={{ bgcolor: "black", color: "white", height: {xs: "75vh", sm: "85vh"}, px: 3, py: 4, borderRadius: "8px" }}>
       {step === 1 && (
         <Box display={"flex"} flexDirection={"column"}  justifyContent={"center"} height={"100%"}>
 
@@ -167,7 +167,7 @@ const Verify = () => {
               color: "#777",
               cursor: "pointer",
               position: "relative",
-              maxHeight: "250px",
+              maxHeight: {xs: "200px", sm: "250px"},
               width: "100%"
             }}
             onClick={() => document.getElementById("front-upload").click()}

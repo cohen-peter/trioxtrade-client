@@ -367,9 +367,9 @@ const Dashboard = () => {
           order={{ xs: 1, sm: 2 }}
           gap={1}
         >
-          <Typography variant="caption">FAQs</Typography>
-          <Typography variant="caption">Terms and Condition</Typography>
-          <Typography variant="caption">Privacy Policy</Typography>
+          {/* <Typography variant="caption">FAQs</Typography> */}
+          {/* <Typography variant="caption">Terms and Condition</Typography> */}
+          {/* <Typography variant="caption">Privacy Policy</Typography> */}
         </Box>
       </Box>
 

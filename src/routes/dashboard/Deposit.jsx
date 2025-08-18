@@ -137,7 +137,7 @@ const Deposit = () => {
         justifyContent: 'center',
         gap: 4,
         px: 2,
-        minHeight: "85vh"
+        minHeight: { xs: "75vh", md: "85vh"}
         // height: 'calc(100vh - 120px)'
       }}
     >
