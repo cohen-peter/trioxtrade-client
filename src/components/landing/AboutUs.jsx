@@ -126,6 +126,7 @@ const MobileAboutUs = () => {
 
 // component for the desktop about us section
 const DesktopAboutUs = () => {
+  const navigate = useNavigate();
 
   return (
     <Container

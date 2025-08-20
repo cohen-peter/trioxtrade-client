@@ -242,7 +242,7 @@ const LearnMore = () => {
               <Typography variant="h6" gutterBottom fontSize={"16px"}>
                 Contact Us
               </Typography>
-              <Box display="flex" alignItems="center" mb={1}>
+              {/* <Box display="flex" alignItems="center" mb={1}>
                 <Email sx={{ mr: 1, color: "#3CE8F2" }} />
                 <Typography fontSize={14}>support@trioxtrade.com</Typography>
               </Box>
@@ -253,6 +253,33 @@ const LearnMore = () => {
               <Box display="flex" alignItems="center">
                 <TelegramIcon sx={{ mr: 1, color: "#3CE8F2" }} />
                 <Typography fontSize={14}>@trioxsupport</Typography>
+              </Box> */}
+              <Box
+                component="a"
+                href="mailto:support@trioxtrade.com"
+                display="flex"
+                alignItems="center"
+                mb={1}
+                sx={{ textDecoration: "none", cursor: "pointer" }}
+              >
+                <Email sx={{ mr: 1, color: "#3CE8F2" }} />
+                <Typography fontSize={14} color="textPrimary">
+                  support@trioxtrade.com
+                </Typography>
+              </Box>
+              <Box
+                component="a"
+                href="https://wa.me/447931377432" // Remove the "+" for wa.me links
+                target="_blank"
+                display="flex"
+                alignItems="center"
+                mb={1}
+                sx={{ textDecoration: "none", cursor: "pointer" }}
+              >
+                <WhatsApp sx={{ mr: 1, color: "#3CE8F2" }} />
+                <Typography fontSize={14} color="textPrimary">
+                  +44 7931 377432
+                </Typography>
               </Box>
             </Box>
           </Box>

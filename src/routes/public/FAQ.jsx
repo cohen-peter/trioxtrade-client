@@ -105,7 +105,7 @@ const faqData = [
   {
     question: "What if I forget my password or lose access?",
     answer:
-      "Contact support with your registered email for recovery.",
+      "You can reset using your email or contact support with your email for recovery.",
     icon: <LockResetIcon sx={{ color: "#3CE8F2", mr: 1 }} />,
   },
   {
@@ -250,7 +250,7 @@ export default function FAQ() {
             <Typography variant="h6" gutterBottom fontSize={"16px"}>
               Contact Us
             </Typography>
-            <Box display="flex" alignItems="center" mb={1}>
+            {/* <Box display="flex" alignItems="center" mb={1}>
               <Email sx={{ mr: 1, color: "#3CE8F2" }} />
               <Typography fontSize={14}>support@trioxtrade.com</Typography>
             </Box>
@@ -261,7 +261,34 @@ export default function FAQ() {
             <Box display="flex" alignItems="center">
               <TelegramIcon sx={{ mr: 1, color: "#3CE8F2" }} />
               <Typography fontSize={14}>@trioxsupport</Typography>
-            </Box>
+            </Box> */}
+             <Box
+                component="a"
+                href="mailto:support@trioxtrade.com"
+                display="flex"
+                alignItems="center"
+                mb={1}
+                sx={{ textDecoration: "none", cursor: "pointer" }}
+              >
+                <Email sx={{ mr: 1, color: "#3CE8F2" }} />
+                <Typography fontSize={14} color="textPrimary">
+                  support@trioxtrade.com
+                </Typography>
+              </Box>
+              <Box
+                component="a"
+                href="https://wa.me/447931377432" // Remove the "+" for wa.me links
+                target="_blank"
+                display="flex"
+                alignItems="center"
+                mb={1}
+                sx={{ textDecoration: "none", cursor: "pointer" }}
+              >
+                <WhatsAppIcon sx={{ mr: 1, color: "#3CE8F2" }} />
+                <Typography fontSize={14} color="textPrimary">
+                  +44 7931 377432
+                </Typography>
+              </Box>
           </Box>
         </Box>
 
